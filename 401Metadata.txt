@@ -1,0 +1,119 @@
+# List of all data targets
+target{
+    cases,
+    deaths
+}
+
+# List of all possible types of data to display 
+data_type{
+    ground_truth,
+    cum, 
+    forecast,
+    evaluation
+}
+
+# List of all levels of data
+data_level{
+    state_level,
+    country_level
+}
+
+# List of all time periods of data (don't worry about it for now)
+data_period{
+    daily,
+    weekly,
+    monthly,
+    annual
+}
+
+# List of all quantiles
+data_quantile{
+    0.25,
+    0.5,
+    0.75
+}
+
+measure{
+	MAE
+}
+
+# List of all data predictions (only for evaluation)
+prediction_period{
+    1 week ahead,
+    2 weeks ahead,
+    3 weeks ahead, 
+    4 week ahead
+}
+
+# Format
+@item{
+    url [required],
+    url_lower,
+    url_upper,
+    url_quantile,
+    target [required],
+    data_type [required],
+    data_level,
+    data_period
+}
+
+
+============Examples=======================
+# Metadata for ground truth
+@ground_truth{
+    url = "https://..."
+    target = {target}
+    data_type = ground_truth
+}
+
+# Metadata for accumulation
+@accumulation{
+    url = "https://..."
+    target = {target}
+    data_type = cum
+    data_level = {data_level}
+    data_period = {data_period}
+}
+
+# Metadata for forecasting with bounds
+@forecast_bounds{
+    url = "https://..."
+    url_lower = "https://..."
+    url_upper = "https://..."
+    target = {target}
+    data_type = forecast
+    data_period = {data_period}
+}
+
+# Metadata for forecasting with quantiles
+@forecast_quantiles{
+    url = "https://..."
+    url_quantile = "https://..."
+    target = {target}
+    data_type = forecast
+    data_period = {data_period}
+}
+
+# Metadata for evaluation in California, US
+@evaluation{
+    url = "https://..."
+    target = {target}
+    data_type = forecast
+    data_period = {data_period}
+    data_level = {data_level}
+    prediction_period = {prediction_period}
+    measure = MAE
+}
+
+@forecast_quantiles{
+    url = "https://..."
+    quantile = 0.025
+    target = {target}
+    data_type = forecast
+}
+@forecast_quantiles{
+	url = "..."
+	quantile = 0.975
+	target = {target}
+	data_type = forecast
+}
