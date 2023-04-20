@@ -1,0 +1,9 @@
+@evaluation{
+    url = "https://..."
+    target = {target}
+    data_type = forecast
+    data_period = {data_period}
+    data_level = {data_level}
+    prediction_period = {prediction_period}
+    measure = MAE
+}
