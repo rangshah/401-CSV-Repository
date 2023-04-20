@@ -1,9 +1,9 @@
 @evaluation{
-    url = "https://..."
-    target = {target}
-    data_type = forecast
-    data_period = {data_period}
-    data_level = {data_level}
-    prediction_period = {prediction_period}
+    url = "https://https://raw.githubusercontent.com/scc-usc/ReCOVER-COVID-19/master/results/forecasts/us_data.csv"
+    target = cases
+    data_type = ground_truth
+    data_period = weekly
+    data_level = state_level
+    prediction_period = 1 week ahead
     measure = MAE
 }
